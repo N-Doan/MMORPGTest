@@ -50,14 +50,14 @@ public class PlayerAttack : NetworkBehaviour
                 if (col.gameObject.GetComponent<Player>())
                 {
                     Player pHit = col.gameObject.GetComponent<Player>();
-                    pHit.id.playerSO.updateHealthServerRPC(id.playerSO.getDefaultAttack() + 1000.0f);
+                    pHit.id.playerSO.updateHealthServerRPC(id.playerSO.getDefaultAttack());
                 }
 
                 //DO DAMAGE TO ENEMY
                 else if (col.gameObject.GetComponent<EnemyController>())
                 {
                     EnemyController eHit = col.gameObject.GetComponent<EnemyController>();
-                    eHit.updateHealthServerRPC(id.playerSO.getDefaultAttack() + 100.0f);
+                    eHit.updateHealthServerRPC(id.playerSO.getDefaultAttack());
                 }
                 gameObject.GetComponent<Collider2D>().enabled = false;
             }
